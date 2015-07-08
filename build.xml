@@ -3,7 +3,7 @@
 <project name="My ZF Project" default="build">
  
 <target name="build"
-depends="prepare, lint, phpcs"/>
+depends="prepare, phpcs"/>
 <target name="build-parallel"
 depends="prepare,lint, tools-parallel"/>
  
@@ -28,17 +28,6 @@ depends="prepare,lint, tools-parallel"/>
 <mkdir dir="${basedir}/build/logs"/>
 <mkdir dir="${basedir}/build/api"/>
 <mkdir dir="${basedir}/application/cache"/>
-</target>
- 
-<!-- Lint the PHP files in application dir. Linting the whole ZF framework library takes forever -->
-<target name="lint" description="Perform syntax check of sourcecode files">
-<apply executable="php" failonerror="true">
-<arg value="-l" />
-<fileset dir="${basedir}/">
-<include name="**/*.php" />
-<modified />
-</fileset>
-</apply>
 </target>
  
 <!-- PHP Code Sniffer - tokenises PHP, JS and CSS files and detects violations of defined coding standards -->
