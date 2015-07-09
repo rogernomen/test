@@ -2,40 +2,6 @@
 <!-- Set some basic project information and targets -->
 <project name="My ZF Project" default="build">
  
-<target name="build"
-depends="prepare"/>
-<target name="build-parallel"
-depends="prepare,tools-parallel, test"/>
- 
-<property environment="env"/>
- 
-<target name="tools-parallel" description="Run tools in parallel">
-<parallel threadCount="2">
-<antcall target="test"/>
-</parallel>
-</target>
-
-<target name="clean"
-         unless="clean.done"
-         description="Cleanup build artifacts">
-  <delete dir="${basedir}/build/api"/>
-  <delete dir="${basedir}/build/coverage"/>
-  <delete dir="${basedir}/build/logs"/>
-  <delete dir="${basedir}/build/pdepend"/>
-  <delete dir="${basedir}/build/phpdox"/>
-  <property name="clean.done" value="true"/>
- </target>
- 
-<!-- Prepare for the new build -->
-<target name="prepare" depends="clean" description="Prepare for build">
-<mkdir dir="${basedir}/build/coverage"/>
-<mkdir dir="${basedir}/build/logs"/>
-<mkdir dir="${basedir}/build/api"/>
-<mkdir dir="${basedir}/application/cache"/>
-</target>
- 
-
-
 <!-- PHP UNIT -->
 <target name="test">
 <echo message="Running unit tests" />
