@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Set some basic project information and targets -->
 <project name="My ZF Project" default="build">
+
+<target name="build" depends="prepare phpunit" />
+
+<property environment="env"/>
  
 <!-- PHP UNIT -->
-<target name="test">
+<target name="phpunit">
 <echo message="Running unit tests" />
 <exec executable="phpunit" failonerror="true">
 <arg value="tests/" />
