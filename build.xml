@@ -2,7 +2,7 @@
 <!-- Set some basic project information and targets -->
 <project name="My ZF Project" default="build">
 
-<target name="build" depends="prepare phpunit" />
+<target name="build" depends="phpunit" />
 
 <property environment="env"/>
  
