@@ -32,3 +32,4 @@ depends="prepare,tools-parallel"/>
 <arg value="tests/" />
 </exec>
 </target>
+</project>
