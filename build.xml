@@ -5,7 +5,7 @@
 <target name="build"
 depends="prepare"/>
 <target name="build-parallel"
-depends="prepare,tools-parallel"/>
+depends="prepare,tools-parallel, test"/>
  
 <property environment="env"/>
  
