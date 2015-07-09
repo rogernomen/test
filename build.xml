@@ -14,6 +14,17 @@ depends="prepare,tools-parallel"/>
 <antcall target="test"/>
 </parallel>
 </target>
+
+<target name="clean"
+         unless="clean.done"
+         description="Cleanup build artifacts">
+  <delete dir="${basedir}/build/api"/>
+  <delete dir="${basedir}/build/coverage"/>
+  <delete dir="${basedir}/build/logs"/>
+  <delete dir="${basedir}/build/pdepend"/>
+  <delete dir="${basedir}/build/phpdox"/>
+  <property name="clean.done" value="true"/>
+ </target>
  
 <!-- Prepare for the new build -->
 <target name="prepare" depends="clean" description="Prepare for build">
